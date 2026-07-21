@@ -4,30 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Promedio</title>
+    <!-- Importamos Tailwind CSS para darle un diseño moderno y bonito sin escribir un archivo CSS extra -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 
-    <h2>Calculadora de Promedio</h2>
+    <!-- Contenedor principal estilo "Tarjeta" -->
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 class="text-2xl font-extrabold text-center text-blue-600 mb-6">Calculadora de Promedio</h2>
 
-    <form id="calcForm">
-        <label>Nota 1: <input type="number" step="any" id="n1" required></label><br><br>
-        <label>Nota 2: <input type="number" step="any" id="n2" required></label><br><br>
-        <label>Nota 3: <input type="number" step="any" id="n3" required></label><br><br>
-        <label>Nota 4: <input type="number" step="any" id="n4" required></label><br><br>
+        <form id="calcForm" class="space-y-4">
+            <!-- Nota 1 -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Nota 1:</label>
+                <input type="number" step="any" id="n1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="0.00" required>
+            </div>
+            
+            <!-- Nota 2 -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Nota 2:</label>
+                <input type="number" step="any" id="n2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="0.00" required>
+            </div>
+            
+            <!-- Nota 3 -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Nota 3:</label>
+                <input type="number" step="any" id="n3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="0.00" required>
+            </div>
+            
+            <!-- Nota 4 -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1">Nota 4:</label>
+                <input type="number" step="any" id="n4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="0.00" required>
+            </div>
 
-        <button type="button" onclick="calcular()">Calcular</button>
-    </form>
+            <!-- Botón de Calcular -->
+            <button type="button" onclick="calcular()" class="w-full mt-4 bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 active:transform active:scale-95 transition-all duration-200">
+                Calcular
+            </button>
+        </form>
 
-    <h3>Promedio: <span id="resultado">0</span></h3>
+        <!-- Caja de Resultado -->
+        <div class="mt-8 p-5 bg-blue-50 rounded-xl text-center border border-blue-100">
+            <h3 class="text-lg text-gray-600 font-medium">Tu Promedio Final es:</h3>
+            <span id="resultado" class="text-4xl font-black text-blue-600 block mt-2">0.00</span>
+        </div>
+    </div>
 
+    <!-- Aquí va nuestro Javascript corregido -->
     <script>
         function calcular() {
             let n1 = parseFloat(document.getElementById('n1').value) || 0;
             let n2 = parseFloat(document.getElementById('n2').value) || 0;
             let n3 = parseFloat(document.getElementById('n3').value) || 0;
             let n4 = parseFloat(document.getElementById('n4').value) || 0;
-
             let promedio = (n1 + n2 + n3 + n4) / 4;
+
             document.getElementById('resultado').textContent = promedio.toFixed(2);
         }
     </script>
