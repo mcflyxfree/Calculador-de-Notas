@@ -51,7 +51,6 @@
         </div>
     </div>
 
-    <!-- Aquí va nuestro Javascript corregido -->
     <script>
         function calcular() {
             let n1 = parseFloat(document.getElementById('n1').value) || 0;
